@@ -1,0 +1,96 @@
+﻿ <!--POLYMER-->
+<link rel="import" href="../bower_components/webcomponentsjs/webcomponents.js" />
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"> </script>
+<link rel="import" href="../../bower_components/polymer/polymer.html" />
+
+
+
+<dom-module id="cliente-ficha-simple" attributes="datos idcliente">
+
+  <template>
+
+    <link rel="stylesheet" href="../Content/bootstrap.css" />
+    <link rel="stylesheet" href="../Content/Site.css" />
+    <link rel="stylesheet" href="../Content/NuboOptica.css" />
+
+
+    <!--Ficha-->
+    <div class="row" name="ficha">
+      <div class="col-md-12" style="padding-top:20px; text-align:left;">
+
+        <div class="col-md-2">
+          <img src="../../Images/img_sin_foto.jpg" style="width:100%; max-width:150px; min-width:105px;  padding-bottom:10px; height:175px;" />
+        </div>
+
+        <div class="col-md-3">
+          <div class="row">
+            <ul style="list-style:none; padding-left:10px;">
+              <li class="liLabel" style="width:100px;"><label>Nombre:</label></li>
+              <li class="liCampo">{{datos.NOMBRE}}</li>
+            </ul>
+
+            <ul style="list-style:none; padding-left:10px;">
+              <li class="liLabel" style="width:100px;"><label>Apellido 1:</label></li>
+              <li class="liCampo">{{datos.APELLIDO1}}</li>
+            </ul>
+
+            <ul style="list-style:none; padding-left:10px;">
+              <li class="liLabel" style="width:100px;"><label>Apellido 2:</label></li>
+              <li class="liCampo">{{datos.APELLIDO2}}</li>
+            </ul>
+
+            <ul style="list-style:none; padding-left:10px;">
+              <li class="liLabel" style="width:100px;"><label>NIF:</label></li>
+              <li class="liCampo">{{datos.NIF}}</li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="row">
+           
+
+            <ul style="list-style:none; padding-left:10px;">
+              <li class="liLabel" style="width:70px;"><label>Clave:</label></li>
+              <li class="liCampo">{{datos.CLAVE}}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="row">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+  </template>
+  
+
+  <script>
+    Polymer({
+
+      is: "cliente-ficha-simple"
+
+      , properties: {
+        idcliente: { type: String }
+        , datos: {
+          type: Object,
+          value: [{ "NOMBRE": "", "APELLIDO1": "", "APELLIDO2": "", "NIF": "" }]
+        }
+      }
+
+     , ready: function () {
+       ObtenerCliente();
+     }
+
+    });
+  </script>
+
+</dom-module>
+
+
+<script src="../Scripts/Funciones/Funciones.js"></script>
+<script src="../Scripts/Funciones/Funciones-cliente-ficha-simple.js"></script>
